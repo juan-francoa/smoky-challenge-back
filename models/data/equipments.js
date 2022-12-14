@@ -1,4 +1,4 @@
-let equipment = [
+let equipments = [
   {
     name: "Mito Purple Fruits",
     photo:
@@ -241,7 +241,7 @@ require("dotenv").config();
 require("../../config/database");
 const Equipment = require("../Equipment");
 
-equipment.forEach((element) => {
+equipments.forEach((element) => {
   Equipment.create({
     name: element.name,
     photo: element.photo,

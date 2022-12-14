@@ -9,5 +9,5 @@ const schema = new mongoose.Schema({
   price: { type: Number, required: true },
 });
 
-const Equipment = mongoose.model('equipment', schema);
+const Equipment = mongoose.model('equipments', schema);
 module.exports = Equipment;

@@ -1,7 +1,7 @@
 let router = require("express").Router()
 
 /* GET home page. */
-let user = require("./users")
+let user = require("./user")
 let liquid = require("./liquids")
 let equipment = require("./equipment")
 

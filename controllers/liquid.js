@@ -1,4 +1,4 @@
-const Liquid = require('../models/Liquids')
+const Liquid = require('../models/Liquid')
 
 const controller = {
 

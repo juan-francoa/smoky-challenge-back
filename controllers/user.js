@@ -31,7 +31,7 @@ const controller = {
         try {
             let user = await User.findOneAndUpdate({ code: code }, { verified: true }, { new: true })
             if (user) {
-                return res.redirect('https://media.giphy.com/media/ASd0Ukj0y3qMM/giphy.gif')
+                return res.redirect('http://localhost:3000')
             } else {
                 return userNotFoundResponse(req, res)
             }

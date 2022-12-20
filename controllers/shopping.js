@@ -8,9 +8,11 @@ const controller = {
             let user = await Shopping.findOne({ userId: id })
             if (user) {
                 let num = user.products.filter(e => Object.keys(req.body.products)[0] == (Object.keys(e)[0]))
+                console.log(num,1)
                 if (num.length > 0) {
-                    num = num.map(e => (e[Object.keys(e)[0]]) + (req.body.products[Object.keys(e)[0]])[0])
+                    num = num.map(e => Number(e[Object.keys(e)[0]])  + Number(req.body.products[Object.keys(e)[0]]))
                     let obj = user.products
+                    console.log(num,2)
                     obj.forEach((e, i) => {
                         if (Object.keys(req.body.products)[0] === Object.keys(e)[0]) {
                             obj[i][Object.keys(req.body.products)] = num

@@ -20,6 +20,7 @@ passport.use(
                         id: user._id,
                         name: user.name,
                         lastname: user.lastname,
+                        role: user.role,
                         photo: user.photo,
                         age: user.age,
                         email: user.email,

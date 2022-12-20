@@ -24,7 +24,6 @@ const controller = {
         //a la base de datos
         try {
             let todos = await Equipment.find()
-            console.log(todos)
             let array = todos
             if(query.user_id){
                 array = todos.filter(e => e.userId == query.user_id)

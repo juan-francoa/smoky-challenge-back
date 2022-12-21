@@ -8,6 +8,14 @@ var logger = require('morgan');
 const cors = require("cors")
 
 
+// SDK de Mercado Pago
+const mercadopago = require("mercadopago");
+// Agrega credenciales
+mercadopago.configure({
+  access_token: process.env.PROD_ACCESS_TOKEN,
+});
+
+
 var indexRouter = require('./routes/index');
 
 
@@ -24,7 +32,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
+
+
 app.use('/api', indexRouter);
+
 
 
 // catch 404 and forward to error handler

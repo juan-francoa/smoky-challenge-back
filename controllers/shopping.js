@@ -1,4 +1,5 @@
 const Shopping = require('../models/Shopping')
+const mercadopago = require("mercadopago")
 
 const controller = {
 
@@ -106,26 +107,30 @@ const controller = {
     },
     pay: async (req, res) => {
         let obj = req.body
-        const mercadopago = require("mercadopago");
         try {
             // Crea un objeto de preferencia
             let preference = {
-                items: []
+                items: [],
+                back_urls:{
+                    success: "http://localhost:3000/mycities",
+                    failure: "http://localhost:3000/myprofile",
+                    pending: "http://localhost:3000/asdasdsad"
+                },
+                auto_return: "approved"
             };
-            let array = obj.forEach(e => {
+            obj.forEach(e => {
                 preference.items.push({
                     title: e.name,
                     unit_price: e.price,
                     quantity: e.count,
                 })
             })
-
-
             mercadopago.preferences
                 .create(preference)
                 .then(function (response) {
+                    console.log(response)
                     res.status(201).json({
-                        response
+                        response: response.body.id
                     })
                     // En esta instancia deberás asignar el valor dentro de response.body.id por el ID de preferencia solicitado en el siguiente paso
                 })

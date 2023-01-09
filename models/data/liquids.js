@@ -122,16 +122,16 @@ let liquids = [
 ];
 
 require("dotenv").config();
-  require("../../config/database");
-  const Liquid = require("../Liquid");
-  
-  liquids.forEach((element) => {
-    Liquid.create({
-      name: element.name,
-      photo: element.photo,
-      category: element.category,
-      description: element.description,
-      amount: element.amount,
-      price: element.price,
-    });
+require("../../config/database");
+const Liquid = require("../Liquid");
+
+liquids.forEach((element) => {
+  Liquid.create({
+    name: element.name,
+    photo: element.photo,
+    category: element.category,
+    description: element.description,
+    amount: element.amount,
+    price: element.price,
   });
+});
